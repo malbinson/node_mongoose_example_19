@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+    function go() {
+        $.ajax({
+        url : "http://localhost:3000/post",
+        type: "POST",
+        data : {name:"matt"},
+        success: postProcess
+    });
+
+
+    }
+    function process(data) {
+
+       console.log(data);
+
+    }        
+    function postProcess(data,status) {
+
+        console.log(data);
+        console.log("Status:" + status);
+
+    }        
+</script>
+</head>
+
+<body>
+
+    <table style="border:1px black solid">
+        <% for(var i=0; i<results.length; i++) { %>
+            <tr>
+                <td><%= results[i].userName %> </td>
+                <td> <%= results[i].password %> </td>
+            </tr>
+        <% } %>
+    </table>
+
+
+  LOGIN
+  <form action="login" method="post">
+    <input type="text" name="username" value="cole">
+    <input type="text" name="password" value="123">
+    <input type="submit">
+</form>
+
+</body>
+
+
+</html>
